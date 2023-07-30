@@ -20,7 +20,7 @@ func TestP1(t *testing.T) {
 		t.Fatal("p1 err: ", err)
 	}
 
-	if expect != actual {
+	if expect != *actual {
 		t.Fatalf("Expected: %d, Actual: %d", expect, actual)
 	}
 }
@@ -28,7 +28,7 @@ func TestP1(t *testing.T) {
 func TestP1Empty(t *testing.T) {
 	result, err := p1("")
 
-	if result != 0 || err == nil {
+	if result != nil || err == nil {
 		t.Fatal("d%", result)
 	}
 

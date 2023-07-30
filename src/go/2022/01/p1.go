@@ -7,9 +7,9 @@ import (
 	"strings"
 )
 
-func p1(input string) (int, error) {
+func p1(input string) (*int, error) {
 	if input == "" {
-		return 0, errors.New("empty input")
+		return nil, errors.New("empty input")
 	}
 
 	contents := strings.Split(input, "\n")
@@ -33,5 +33,5 @@ func p1(input string) (int, error) {
 			fmt.Println("err: ", err)
 		}
 	}
-	return max, nil
+	return &max, nil
 }

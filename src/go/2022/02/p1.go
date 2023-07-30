@@ -13,9 +13,9 @@ const (
 	SCISSOR
 )
 
-func p1(input string) (int, error) {
+func p1(input string) (*int, error) {
 	if input == "" {
-		return 0, errors.New("Input is empty")
+		return nil, errors.New("Input is empty")
 	}
 	contents := strings.Split(strings.ReplaceAll(strings.TrimSpace(input), " ", ""), "\n")
 	winningCombination := map[int]int{ROCK: SCISSOR, PAPER: ROCK, SCISSOR: PAPER}
@@ -34,7 +34,7 @@ func p1(input string) (int, error) {
 		}
 		points += PlayerHands[pl]
 	}
-	return points, nil
+	return &points, nil
 }
 
 func main() {

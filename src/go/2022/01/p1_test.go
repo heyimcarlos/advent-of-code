@@ -17,14 +17,14 @@ func TestP1(t *testing.T) {
 	var want int = 69281
 	result, err := p1(string(file))
 
-	if result != want {
+	if *result != want {
 		t.Fatalf("Expected: %d, Actual: %d", want, result)
 	}
 }
 
 func TestP1Empty(t *testing.T) {
 	result, err := p1("")
-	if err == nil || result != 0 {
+	if err == nil || result != nil {
 		t.Fatal(errors.New("empty input"))
 	}
 }
