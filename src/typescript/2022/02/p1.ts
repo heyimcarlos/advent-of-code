@@ -39,7 +39,6 @@ export function p1(input: string): number {
     for (let i = 0; i < contents.length; i++) {
         const [op, pl] = contents[i] as unknown as [OpponentShape, PlayerShape];
         if (opponentShapeMap[op] === playerShapeMap[pl]) points += Outcome.DRAW;
-        if (winningShapeMap[opponentShapeMap[op]] === playerShapeMap[pl]) points += Outcome.LOSE;
         if (winningShapeMap[playerShapeMap[pl]] === opponentShapeMap[op]) points += Outcome.WIN;
         points += playerShapeMap[pl]
     }
