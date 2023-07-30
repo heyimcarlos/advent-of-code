@@ -9,7 +9,7 @@ import (
 
 func p1(input string) (int, error) {
 	if input == "" {
-		return 0,errors.New("empty input")
+		return 0, errors.New("empty input")
 	}
 
 	contents := strings.Split(input, "\n")
