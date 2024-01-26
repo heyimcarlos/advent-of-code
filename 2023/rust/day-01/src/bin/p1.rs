@@ -15,28 +15,21 @@ fn read_input(path: &str) -> String {
     std::fs::read_to_string(path).unwrap()
 }
 
-fn p1(input: String) -> String {
-    let mut answer = vec![];
+fn p1(input: String) -> i32 {
+    let mut sum: i32 = 0;
     for line in input.lines() {
         let mut current_digits = vec![];
         for ch in line.chars() {
             if ch.is_digit(10) {
-                let _ = &mut current_digits.push(ch);
+                current_digits.push(ch);
             }
         }
-        answer.push((
-            *current_digits.first().unwrap(),
-            *current_digits.last().unwrap(),
-        ));
+        let first = current_digits.first().unwrap();
+        let last = current_digits.last().unwrap();
+        let combined = format!("{}{}", first, last).parse::<i32>();
+        sum += combined.unwrap();
     }
-
-    let mut sum = 0;
-    for (first, last) in answer {
-        let combined = format!("{}{}", first, last).parse::<u32>().unwrap();
-        sum += combined;
-    }
-
-    sum.to_string()
+    sum
 }
 
 async fn fetch_url(url: &str) -> Result<String, reqwest::Error> {
@@ -80,6 +73,6 @@ mod tests {
     #[test]
     fn test_p1() {
         let result = p1(read_input("src/bin/input1.txt"));
-        assert_eq!(result, "56465".to_string());
+        assert_eq!(result, 56465);
     }
 }
