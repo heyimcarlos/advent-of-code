@@ -1,5 +1,5 @@
 use std::{fs::File, io::Write};
-include!("../common/utils.rs");
+mod util;
 
 fn main() {
     let input_exists = std::path::Path::new("src/bin/input1.txt").exists();
@@ -35,7 +35,7 @@ fn p1(input: String) -> i32 {
 
 fn fetch_input() -> Result<(), Box<dyn std::error::Error>> {
     let runtime = tokio::runtime::Runtime::new()?;
-    let future = fetch("https://adventofcode.com/2023/day/1/input");
+    let future = util::fetch("https://adventofcode.com/2023/day/1/input");
     let res = runtime.block_on(future)?;
 
     if res.len() > 0 {

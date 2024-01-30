@@ -16,5 +16,7 @@ pub async fn fetch(url: &str) -> Result<String, reqwest::Error> {
         .text()
         .await?;
 
+    println!("fetch response: {}", res);
+
     Ok(res)
 }

@@ -1,9 +1,7 @@
-pub mod lib;
+mod util;
 
 fn main() {
     println!("day 1 part 2");
     // common::
-    // utils::fetch();
-    // fetch();
-    lib::fetch();
+    // util::fetch();
 }

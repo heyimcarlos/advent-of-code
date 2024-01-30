@@ -13,6 +13,6 @@ description = "Advent of Code 2022 - Day 01"
 reqwest = "0.11.23"
 tokio = { version = "1.35.1", features = ["full"] }
 
-[[bin]]
-name = "common"
-path = "src/common/mod.rs"
+[lib]
+name = "util"
+path = "src/bin/fetch.rs"
