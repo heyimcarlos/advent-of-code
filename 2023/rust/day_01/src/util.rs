@@ -26,7 +26,3 @@ pub fn fetch(url: &str) -> Result<String, Box<dyn std::error::Error>> {
 
     Ok(file_content)
 }
-
-fn main() {
-    println!("Hi, I'm util.rs");
-}
