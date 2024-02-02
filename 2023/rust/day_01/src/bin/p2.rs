@@ -15,10 +15,8 @@ fn p2(contents: String) -> String {
         .lines()
         .map(|line| {
             let mut result = vec![];
-            let mut index = 0;
-            while index < line.len() {
-                let curr_char = line.chars().nth(index).unwrap();
-                let reduced_line = &line[index..];
+            for (idx, char) in line.chars().enumerate() {
+                let reduced_line = &line[idx..];
 
                 if reduced_line.starts_with("one") {
                     result.push(1);
@@ -38,11 +36,10 @@ fn p2(contents: String) -> String {
                     result.push(8);
                 } else if reduced_line.starts_with("nine") {
                     result.push(9);
-                } else if curr_char.is_digit(10) {
-                    let val = curr_char.to_digit(10).unwrap() as i32;
+                } else if char.is_digit(10) {
+                    let val = char.to_digit(10).unwrap() as i32;
                     result.push(val);
                 }
-                index += 1;
             }
             let first = result.first().expect("should be a number");
             let last = result.last().expect("should be a number");
